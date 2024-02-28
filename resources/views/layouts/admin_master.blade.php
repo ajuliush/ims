@@ -76,17 +76,30 @@ Products<!DOCTYPE html>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
+                            <a class="nav-link 
+                            {{ request()->is('new-order') ? 'collapsed' : '' }}
+                            {{ request()->is('all-orders') ? 'collapsed' : '' }}
+                            {{ request()->is('pending-orders') ? 'collapsed' : '' }}
+                            {{ request()->is('delivered-orders') ? 'collapsed' : '' }}
+                            " href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Orders
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <div class="collapse
+                            {{ request()->is('new-order') ? 'show' : '' }}
+                            {{ request()->is('all-orders') ? 'show' : '' }}
+                            {{ request()->is('pending-orders') ? 'show' : '' }}
+                            {{ request()->is('delivered-orders') ? 'show' : '' }}
+                            " id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('new.order')}}">New Order</a>
+                                    <a class="nav-link" href="{{ route('all.orders')}}">Orders List</a>
+                                    <a class="nav-link" href="{{ route('pending.orders')}}">Pending Orders</a>
+                                    <a class="nav-link" href="{{ route('delivered.orders')}}">Delivered Orders</a>
                                 </nav>
                             </div>
-                            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            {{-- <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('all.orders')}}">Orders List</a>
                                 </nav>
@@ -100,7 +113,7 @@ Products<!DOCTYPE html>
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('delivered.orders')}}">Delivered Orders</a>
                                 </nav>
-                            </div>
+                            </div> --}}
 
                             <a class="nav-link 
                             {{ request()->is('new-invoice') ? 'collapsed' : '' }}
