@@ -78,9 +78,9 @@ Products<!DOCTYPE html>
                             
                             <a class="nav-link 
                             {{ request()->is('new-order') ? 'collapsed' : '' }}
-                            {{ request()->is('all-orders') ? 'collapsed' : '' }}
-                            {{ request()->is('pending-orders') ? 'collapsed' : '' }}
-                            {{ request()->is('delivered-orders') ? 'collapsed' : '' }}
+                            {{ request()->is('new-order') ? 'collapsed' : '' }}
+                            {{ request()->is('new-order') ? 'collapsed' : '' }}
+                            {{ request()->is('new-order') ? 'collapsed' : '' }}
                             " href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Orders
@@ -88,9 +88,6 @@ Products<!DOCTYPE html>
                             </a>
                             <div class="collapse
                             {{ request()->is('new-order') ? 'show' : '' }}
-                            {{ request()->is('all-orders') ? 'show' : '' }}
-                            {{ request()->is('pending-orders') ? 'show' : '' }}
-                            {{ request()->is('delivered-orders') ? 'show' : '' }}
                             " id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('new.order')}}">New Order</a>
